@@ -16,7 +16,7 @@ public class PedidoService {
 	private PedidoRepository repo;
 	// buscando categoria pro codigo
 	
-	public Pedido buscar(Integer id) {
+	public Pedido find(Integer id) {
 		Optional<Pedido> obj = repo.findById(id);
 		
 		/*if(obj == null) {
