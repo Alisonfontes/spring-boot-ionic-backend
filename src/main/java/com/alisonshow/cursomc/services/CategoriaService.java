@@ -1,5 +1,6 @@
 package com.alisonshow.cursomc.services;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -51,6 +52,11 @@ public class CategoriaService {
 			
 		}
 		
+	}
+	
+	// chamando todas as categorias
+	public List<Categoria> findAll(){
+		return repo.findAll();
 	}
 
 }
