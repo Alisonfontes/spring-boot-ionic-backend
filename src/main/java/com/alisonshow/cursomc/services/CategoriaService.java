@@ -40,8 +40,9 @@ public class CategoriaService {
 	
 	//metodo de atualização
 	public Categoria update(Categoria obj) {
-		find(obj.getId());
-		return repo.save(obj);
+		Categoria newObj = find(obj.getId());
+		updateData(newObj, obj);
+		return repo.save(newObj);
 	}
 	
 	//delete
@@ -72,6 +73,11 @@ public class CategoriaService {
 	// validação da categoria apartir de um dto
 	public Categoria fromDTO(CategoriaDTO objDto) {
 		return new Categoria(objDto.getId(), objDto.getNome());
+	}
+	
+	private void updateData(Categoria newObj, Categoria obj) {
+		newObj.setNome(obj.getNome());
+		
 	}
 
 }
