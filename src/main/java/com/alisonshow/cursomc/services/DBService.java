@@ -71,6 +71,7 @@ public void instantiateTestDatabase() throws ParseException {
 	Categoria cat7 = new Categoria(null, "Perfume");
 	
 	
+	
 	categoriaRepository.saveAll(Arrays.asList(cat1, cat2, cat3,cat4,cat5,cat6,cat7));
 	
 	// atribuindo categorias e produtos
