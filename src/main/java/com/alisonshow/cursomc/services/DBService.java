@@ -123,7 +123,7 @@ public void instantiateTestDatabase() throws ParseException {
 	cidadeRepository.saveAll(Arrays.asList(c1,c2,c3));
 	
 	
-	Cliente cli1 = new Cliente(null, "Maria silva", "Maria@gmail.com", "0707044030", TipoClienete.PESSOAFISICA);
+	Cliente cli1 = new Cliente(null, "Maria silva", "alisondefontes@gmail.com", "0707044030", TipoClienete.PESSOAFISICA);
 	cli1.getTelefones().addAll(Arrays.asList("81988100657", "81988199097"));
 	
 	Endereco e1 = new Endereco(null, "Rua flores", "300", "APTO 300", "Jardim", "52091026",  cli1, c1);
