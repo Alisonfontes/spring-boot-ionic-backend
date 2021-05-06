@@ -20,6 +20,7 @@ import com.alisonshow.cursomc.domain.PagamentoComCartao;
 import com.alisonshow.cursomc.domain.Pedido;
 import com.alisonshow.cursomc.domain.Produto;
 import com.alisonshow.cursomc.domain.enums.EstadoPagamento;
+import com.alisonshow.cursomc.domain.enums.Perfil;
 import com.alisonshow.cursomc.domain.enums.TipoClienete;
 import com.alisonshow.cursomc.repositories.CategoriaRepository;
 import com.alisonshow.cursomc.repositories.CidadeRepository;
@@ -130,13 +131,19 @@ public void instantiateTestDatabase() throws ParseException {
 	Cliente cli1 = new Cliente(null, "Maria silva", "alisondefontes@gmail.com", "0707044030", TipoClienete.PESSOAFISICA, pe.encode("123"));
 	cli1.getTelefones().addAll(Arrays.asList("81988100657", "81988199097"));
 	
+	Cliente cli2 = new Cliente(null, "Ana Costa", "sistema.fontes@gmail.com", "09338001008", TipoClienete.PESSOAFISICA, pe.encode("222"));
+	cli2.getTelefones().addAll(Arrays.asList("8134428479", "81992129238"));
+	cli2.addPerfil(Perfil.ADMIN);
+	
 	Endereco e1 = new Endereco(null, "Rua flores", "300", "APTO 300", "Jardim", "52091026",  cli1, c1);
 	Endereco e2 = new Endereco(null, "Avenida matos ", "105", "Sala 800", "Centro", "38777012", cli1, c2);
+	Endereco e3 = new Endereco(null, "Avenida floriano ", "105", null, "Centro", "38700000", cli2, c2);
 	
 	cli1.getEnderecos().addAll(Arrays.asList(e1,e2));
+	cli2.getEnderecos().addAll(Arrays.asList(e3));
 	
-	clienteRepository.saveAll(Arrays.asList(cli1));
-	enderecoRepository.saveAll(Arrays.asList(e1,e2));
+	clienteRepository.saveAll(Arrays.asList(cli1, cli2));
+	enderecoRepository.saveAll(Arrays.asList(e1,e2, e3));
 	
 	SimpleDateFormat sdf  =  new SimpleDateFormat("dd/MM/yyyy HH:mm");
 	

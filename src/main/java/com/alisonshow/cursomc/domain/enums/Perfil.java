@@ -1,15 +1,15 @@
 package com.alisonshow.cursomc.domain.enums;
 
 
-public enum EstadoPagamento {
-	PENDENTE(1, "Pendente"),
-	QUITADO(2, "Quitado"),
-	CANCELADO(3, "Cancelado");
+public enum Perfil {
+	ADMIN(1, "ROLE_ADMIN"),
+	CLIENTE(2, "ROLE_CLIENTE");
+	
 	
 	private int codigo;
 	private String descricao;
 	
-	private EstadoPagamento(int codigo, String descricao) {
+	private Perfil(int codigo, String descricao) {
 		this.codigo = codigo;
 		this.descricao = descricao;
 	}
@@ -24,12 +24,12 @@ public enum EstadoPagamento {
 	}
 
 	
-	public static EstadoPagamento ToEnum(Integer cod) {
+	public static Perfil ToEnum(Integer cod) {
 		if(cod == null) {
 			return null;
 		}
 		
-		for (EstadoPagamento x : EstadoPagamento.values()) {
+		for (Perfil x : Perfil.values()) {
 			if(cod.equals(x.getCodigo())) {
 				return x;
 			}
